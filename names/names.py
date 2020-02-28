@@ -10,13 +10,16 @@ f = open('names_2.txt', 'r')
 names_2 = f.read().split("\n")  # List containing 10000 names
 f.close()
 
-duplicates = []  # Return the list of duplicates in this data structure
+# Return the list of duplicates in this data structure
 
 # Replace the nested for loops below with your improvements
-for name_1 in names_1:
-    for name_2 in names_2:
-        if name_1 == name_2:
-            duplicates.append(name_1)
+
+# Defining the sets outside of the list comprehension improves runtime significantly, assuming it's calling set()
+# everytime it loops?
+
+names_1_set = set(names_1)
+names_2_set = set(names_2)
+duplicates = [name for name in names_1_set if name in names_2_set]
 
 end_time = time.time()
 print (f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")
