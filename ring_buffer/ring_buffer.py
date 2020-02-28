@@ -37,14 +37,13 @@ class RingBuffer:
 class ArrayRingBuffer:
     def __init__(self, capacity):
         self.storage = [None]*capacity
-        self.capacity = capacity
-        self.counter = 0
+        self.pointer = 0
 
     def append(self, item):
-        if self.counter == self.capacity:
-            self.counter = 0
-        self.storage[self.counter] = item
-        self.counter += 1
+        if self.pointer == len(self.storage):
+            self.pointer = 0
+        self.storage[self.pointer] = item
+        self.pointer += 1
 
     def get(self):
         return [i for i in self.storage if i is not None]
