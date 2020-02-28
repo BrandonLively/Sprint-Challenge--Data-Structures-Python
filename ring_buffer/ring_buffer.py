@@ -1,6 +1,6 @@
 from doubly_linked_list import DoublyLinkedList
 
-
+#for commit
 class RingBuffer:
     def __init__(self, capacity):
         self.capacity = capacity
@@ -17,6 +17,7 @@ class RingBuffer:
         # TODO: Your code here
 
         return list_buffer_contents
+
 
 # ----------------Stretch Goal-------------------
 
