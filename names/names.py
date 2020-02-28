@@ -17,9 +17,7 @@ f.close()
 # Defining the sets outside of the list comprehension improves runtime significantly, assuming it's calling set()
 # everytime it loops?
 
-names_1_set = set(names_1)
-names_2_set = set(names_2)
-duplicates = [name for name in names_1_set if name in names_2_set]
+duplicates = [name for name in names_1 if name in names_2]
 
 end_time = time.time()
 print (f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")
